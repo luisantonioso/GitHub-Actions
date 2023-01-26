@@ -20,5 +20,5 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deploy to server
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd /www && git pull'
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd /www && docker-compose up -d --build'
+          ssh ${{ secrets.SSH_DIRETO }} 'cd /www && git pull'
+          ssh ${{ secrets.SSH_DIRETO }} 'cd /www && docker-compose up -d --build'
