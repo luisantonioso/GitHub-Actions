@@ -18,6 +18,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: unnecessary
 
+      - name: Adding Known Hosts
+        run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
+
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         env:
@@ -26,9 +29,8 @@ jobs:
           SOURCE: "/"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
-          TARGET: '/root/www'
+          TARGET: '/var/www'
           EXCLUDE: "/dist/, /node_modules/"
-          known_hosts: '/.ssh/known_hosts'
           SCRIPT_BEFORE: |
             whoami
             ls -al
