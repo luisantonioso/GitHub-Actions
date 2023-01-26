@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
+      - uses: actions/setup-node@v1
 
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
@@ -20,6 +21,9 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
 
+      - name: Deploy with rsync
+        run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www
+
       - name: Restart Node Server
         uses: appleboy/ssh-action@master
         with:
@@ -28,4 +32,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            ls
+            docker ps
