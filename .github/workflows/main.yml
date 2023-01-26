@@ -31,4 +31,4 @@ jobs:
             echo $RSYNC_STDOUT
       - name: Deploy to server
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p 3022 'cd /www && git pull'
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p 3022 'cd /home/jelastic && git pull'
