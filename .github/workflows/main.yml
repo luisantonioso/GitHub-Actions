@@ -19,4 +19,4 @@ jobs:
 
       - name: Deploy to server
         run: |
-          ssh ${{ secrets.SSH_DIRETO }} 'dir'
+          ssh ${{ secrets.SSH_DIRETO }}
