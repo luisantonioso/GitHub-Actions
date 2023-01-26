@@ -13,7 +13,7 @@ jobs:
 
       - name: Install SSH Key
         run: |
-          mkdir -p ~/.ssh
+          mkdir ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
