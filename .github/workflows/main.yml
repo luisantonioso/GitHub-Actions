@@ -11,6 +11,12 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
 
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          known_hosts: ${{ secrets.SSH_HOST }} 
+
       - name: 📂 Sync files
         uses: easingthemes/ssh-deploy@main
         with:
