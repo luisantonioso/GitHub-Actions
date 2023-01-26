@@ -20,7 +20,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
           REMOTE_PORT: ${{ secrets.SSH_PORT }}
-          TARGET: "/"
+          TARGET: "/home/jelastic"
           EXCLUDE: "/dist/, /node_modules/"
           SCRIPT_BEFORE: |
             whoami
@@ -29,6 +29,3 @@ jobs:
             whoami
             ls -al
             echo $RSYNC_STDOUT
-      - name: Deploy to server
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p 3022 'cd /home/jelastic && git pull'
