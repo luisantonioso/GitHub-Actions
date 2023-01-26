@@ -19,4 +19,4 @@ jobs:
 
       - name: Deploy to server
         run: |
-          ssh ${{ secrets.SSH_DIRETO }}
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p 3022 'cd /www && git pull'
