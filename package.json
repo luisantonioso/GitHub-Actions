@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/obg-lab/setup-nodejs.git"
+    "url": "git+https://https://github.com/luisantonioso/GitHub-Actions.git.git"
   },
   "keywords": [
     "nodejs",
@@ -19,9 +19,9 @@
   "author": "Bruno Germano <bruno@egermano.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/obg-lab/setup-nodejs/issues"
+    "url": "https://github.com/luisantonioso/GitHub-Actions/issues"
   },
-  "homepage": "https://github.com/obg-lab/setup-nodejs#readme",
+  "homepage": "https://github.com/luisantonioso/GitHub-Actions#readme",
   "dependencies": {
     "express": "^4.17.1"
   },
